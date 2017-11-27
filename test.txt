@@ -1,0 +1,49 @@
+<DOCTYPE HTML>
+    <html>
+        <head>
+           <title>  Biens  </title>
+            <link rel="stylesheet" type="text/css" href=<?php echo base_url(); ?>assets/css/style.css>
+            <link rel="stylesheet" type="text/css" href=<?php echo base_url(); ?>assets/css/bootstrap.css>
+            <link rel="stylesheet" type="text/css" href="style.css">
+
+        </head>
+        <body>
+        <div class="container-fluid bg-info blochaut" style="height: 100px; margin-bottom: 2%"></div>
+       <div class="container"> <?php echo anchor('welcome/ajout', 'Ajouter un bien', ['class'=>'btn btn-primary']); ?></div>
+        <table class="table table-striped table-hover ">
+            <thead>
+            <tr>
+
+                <th>VALEUR DU BIEN</th>
+                <th>DUREE D'UTILISATION</th>
+                <th>TAUX D'AMORTISSEMENT</th>
+                <th>VALEUR DE L'AMORTISSEMENT</th>
+                <th>VALEUR NETTE COMPTABLE </th>
+                <th>DATE D'ENREGISTREMENT </th>
+                <th>TRAITEMENTS </th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if (count($bien)) :   ?>
+                <?php foreach ($bien as $bien):;  ?>
+            <tr>
+
+                <td><?php echo  $bien->valeurbien ?></td>
+                <td><?php echo  $bien->duree ?></td>
+                <td><?php echo  $bien->tauxAmortissement ?></td>
+                <td><?php echo  $bien->valAmort ?></td>
+                <td><?php echo  $bien->vncomp ?></td>
+                <td><?php echo  $bien->date_ajout ?></td>
+                <td> <?php echo anchor('welcome/ajout', 'Modifier', ['class'=>'btn btn-warning']); ?> <?php echo anchor('welcome/ajout', 'Supprimer', ['class'=>'btn btn-danger']); ?></td>
+            </tr>
+            <?php endforeach;  ?>
+            <?php else:   ?>
+            <tr> <td> PAS DE DONNEES A AFFICHER </td></tr>
+            <?php endif;   ?>
+            </tbody>
+        </table>
+
+        </body>
+    </html>
+
+
